@@ -9,9 +9,6 @@ import '../screen/netpie2020.dart';
 
 
 class GoogleMapScreen extends StatefulWidget {
-
-
-  
   @override
   _GoogleMapScreenState createState() => _GoogleMapScreenState();
 }
@@ -47,14 +44,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
     return position.longitude;
   }
 
-  distanceBetween(lat1,long1,lat2,long2)
-  {
-    distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
-    print("distance");
-    print(distanceInMeters/1000);
-
-
-  }
 
 
   void myNew()  async{
@@ -92,11 +81,21 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
     distanceBetween(_latitude, _longitude,latitude,longitude);
   }
 
+  distanceBetween(lat1,long1,lat2,long2)
+  {
+    distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
+    print("distance");
+    print(distanceInMeters/1000);
+
+
+  }
+/*
+
   onMarkerPressed(latitude,longitude)
   {
     distanceBetween(_latitude, _longitude,latitude,longitude);
   }
-
+*/
   Completer<GoogleMapController> _controller = Completer();
   Marker _home;
   Marker _bus1; 
@@ -266,14 +265,11 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
             Positioned(
               top: 50,
              child: new Text(
-                 'Distance  : '+'${(distanceInMeters/1000).truncate()}'+' KiloMetres',
+                '${(distanceInMeters)}'+' Metres',
              style: TextStyle(
                fontSize: 20,fontWeight: FontWeight.bold
              ),
              ),
-
-
-
             ),
             Positioned(
                 bottom: 40,
