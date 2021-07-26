@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../direction_model.dart';
 import '../directions_repository.dart';
@@ -13,28 +14,38 @@ class GoogleMapScreen extends StatefulWidget {
   _GoogleMapScreenState createState() => _GoogleMapScreenState();
 }
 
-class _GoogleMapScreenState extends State<GoogleMapScreen>{
+class _GoogleMapScreenState extends State<GoogleMapScreen>
+{
   NETPIE2020 netpie2020;
   Set<Marker> _markers ={ };
   double x=17.7184 ;
   double y =83.3188 ;
   double latitude;
   double longitude;
-  double _latitide =1;
+  double _latitude =1;
   double _longitude =1;
   var locationMessage ="";
   Directions _info;
   var distance;
 
   Future<double> get_location() async
+
   {
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
-    _latitide= position.latitude;
+    _latitude= position.latitude;
     return position.longitude;
   }
 
+  distanceBetween(lat1,long1,lat2,long2)
+  {
+    var distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
+    print("distance");
+    print(distanceInMeters);
+  }
+
+
   void myNew()  async{
-    var position = await Geolocator.getCurrentPosition(
+    Position position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
     var lat = position.latitude;
     var long = position.longitude;
@@ -65,6 +76,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
             tilt: 60.0),
       ),
     );
+    distanceBetween(_latitude, _longitude,x,y);
   }
 
   Completer<GoogleMapController> _controller = Completer();
@@ -83,7 +95,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
     setState(() {
       _markers.add(
        _home= new Marker(markerId: MarkerId('1'),
-        position:  new LatLng(_latitide,_longitude),
+        position:  new LatLng(_latitude,_longitude),
         infoWindow: InfoWindow(
           title: 'home',
           snippet: 'user home',
@@ -166,7 +178,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
           actions: [
             if(_home != null)
           TextButton(
-        onPressed: () => OnPressedFunction(_latitide,_longitude),
+        onPressed: () => OnPressedFunction(_latitude,_longitude),
           child:Text("home"),
           ),
           TextButton(onPressed: ()=>OnPressedFunction(x,y)
@@ -232,12 +244,13 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
                 child: ElevatedButton(
               onPressed: ()async {
                 _longitude= await get_location();
-                print(_latitide);
+                print(_latitude);
                 print(_longitude);
                 setState(() {
                   _markers.add(
-                      _bus2= Marker(markerId: MarkerId('1'),
-                          position:  new LatLng(_latitide,_longitude),
+                      _bus2= Marker(
+                          markerId: MarkerId('1'),
+                          position:  new LatLng(_latitude,_longitude),
                           infoWindow: InfoWindow(
                             title: 'Home',
                             snippet: 'This is your location ',
