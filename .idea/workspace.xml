@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b8c43e8-3991-4446-aba5-ca44e4265f66" name="Default Changelist" comment="Added current location to home">
+    <list default="true" id="7b8c43e8-3991-4446-aba5-ca44e4265f66" name="Default Changelist" comment="Got distance in metres">
+      <change afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/DistancePage.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Bustracking-master/lib/screen/google_map_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/google_map_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bustracking-master/lib/screen/netpie2020.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/netpie2020.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -58,13 +67,21 @@
       <option name="project" value="LOCAL" />
       <updated>1627283725724</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Got distance in metres">
+      <created>1627290288369</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1627290288369</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed redundant methods" />
     <MESSAGE value="Added current location to home" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added current location to home" />
+    <MESSAGE value="Got distance in metres" />
+    <option name="LAST_COMMIT_MESSAGE" value="Got distance in metres" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1627282695393">
@@ -83,30 +100,30 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="826" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1627278782632" />
-    <state width="1491" height="270" key="GridCell.Tab.0.bottom" timestamp="1627290245336">
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom" timestamp="1627293817820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="270" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1627290245336" />
-    <state width="1491" height="270" key="GridCell.Tab.0.center" timestamp="1627290245336">
+    <state width="1491" height="270" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1627293817820" />
+    <state width="1491" height="270" key="GridCell.Tab.0.center" timestamp="1627293817820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="270" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1627290245336" />
-    <state width="1491" height="270" key="GridCell.Tab.0.left" timestamp="1627290245336">
+    <state width="1491" height="270" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1627293817820" />
+    <state width="1491" height="270" key="GridCell.Tab.0.left" timestamp="1627293817819">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="270" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1627290245336" />
-    <state width="1491" height="270" key="GridCell.Tab.0.right" timestamp="1627290245336">
+    <state width="1491" height="270" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1627293817819" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right" timestamp="1627293817820">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1491" height="270" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1627290245336" />
+    <state width="1491" height="270" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1627293817820" />
     <state x="555" y="57" key="SettingsEditor" timestamp="1627278784355">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1627278784355" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1627283733787">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1627290293728">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1627283733787" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1627290293728" />
     <state x="559" y="313" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1627282884937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

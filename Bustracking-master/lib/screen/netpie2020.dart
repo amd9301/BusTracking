@@ -6,7 +6,8 @@ var y;
 class NETPIE2020 {
   // publish message topic
   Future<bool> publish(
-      String topic, String clientId, String token, String message) async {
+      String topic, String clientId, String token, String message) async
+  {
     // sent request token
     String deviceAuth = 'Device ' + clientId + ":" + token;
     Response response =await http.put( x + topic, headers: <String, String>

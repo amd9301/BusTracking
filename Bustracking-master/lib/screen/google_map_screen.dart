@@ -4,11 +4,13 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../direction_model.dart';
 import '../directions_repository.dart';
-import 'package:geolocator/geolocator.dart';
 import '../screen/netpie2020.dart';
+import 'DistancePage.dart';
 
 
 class GoogleMapScreen extends StatefulWidget {
+
+
   
   @override
   _GoogleMapScreenState createState() => _GoogleMapScreenState();
@@ -27,7 +29,16 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
   var locationMessage ="";
   Directions _info;
   var distance;
-
+  //Latitudes and longitudes of buses
+  double b1lat=17.7184;
+  double b1long=83.3188;
+  double b2lat=17.7142;
+  double b2long=83.3237;
+  double b3lat=17.777122;
+  double b3long=83.361575;
+  double b4lat=17.8205;
+  double b4long=83.3423;
+  var distanceInMeters;
   Future<double> get_location() async
 
   {
@@ -38,9 +49,16 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
 
   distanceBetween(lat1,long1,lat2,long2)
   {
-    var distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
+    distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
     print("distance");
-    print(distanceInMeters);
+    print(distanceInMeters/1000);
+    /*Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder:(context)=>DistancePage(),
+      ),
+    );*/
+
   }
 
 
@@ -76,7 +94,12 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
             tilt: 60.0),
       ),
     );
-    distanceBetween(_latitude, _longitude,x,y);
+    distanceBetween(_latitude, _longitude,latitude,longitude);
+  }
+
+  onMarkerPressed(latitude,longitude)
+  {
+    distanceBetween(_latitude, _longitude,latitude,longitude);
   }
 
   Completer<GoogleMapController> _controller = Completer();
@@ -85,7 +108,6 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
   Marker _bus2;
   Marker _bus3;
   Marker _bus4;
-
 
 
   Future<void> _onMapCreated(GoogleMapController controller) async {
@@ -110,8 +132,8 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
         position: new LatLng(x,y),
         infoWindow: InfoWindow(
           title: 'bus 1',
-        snippet: 'this bus is at a distance of 2.3 Km from home ',
-  
+        snippet: 'this bus is at a distance of 8 Km from home ',
+          onTap: ()=>onMarkerPressed(x, y)
         )
       )
         );
@@ -136,6 +158,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
         infoWindow: InfoWindow(
           title: 'bus 3',
         snippet: 'this bus is at yendada junction at a distance of 8.1 Km from rk beach takes 19 min',
+
         )
         )
       );
@@ -147,6 +170,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
         infoWindow: InfoWindow(
           title: 'bus 4',
         snippet: 'this bus is currently at mvp colony ',
+
                 )
         )
       );
@@ -158,10 +182,12 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
         infoWindow: InfoWindow(
           title: 'bus 5',
         snippet: 'this  bus has reached college',
+
                 )
         )
       );
-    });
+    }
+    );
     // Get directions
       final directions = await DirectionsRepository()
           .getDirections(origin:LatLng(17.7294,83.3093), destination: LatLng(17.8205,83.3423),);
@@ -178,23 +204,27 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
           actions: [
             if(_home != null)
           TextButton(
-        onPressed: () => OnPressedFunction(_latitude,_longitude),
+            onPressed: () => OnPressedFunction(_latitude,_longitude),
           child:Text("home"),
           ),
-          TextButton(onPressed: ()=>OnPressedFunction(x,y)
-           , child:Text("bus 1")
+          TextButton(
+              onPressed: ()=>OnPressedFunction(x,y) ,
+              child:Text("bus 1")
           ),
           TextButton(
-              onPressed: ()=>OnPressedFunction(17.7142,83.3237),
-        child:Text("bus 2")
+              onPressed: (){
+                OnPressedFunction(b2lat,b2long);
+    },
+              child:Text("bus 2")
           ),
           TextButton(
-              onPressed: () =>OnPressedFunction(17.777122,83.361575)
+              onPressed: () =>OnPressedFunction(b3lat,b3long)
               ,child:Text("bus 3")
           ),
           TextButton(
-              onPressed: () => OnPressedFunction(17.8205,83.3423)
-         , child:Text("bus 4")
+              onPressed: () => OnPressedFunction(b4lat,b4long),
+              //  onLongPress: ()=>OnMarkerPressed(),
+              child:Text("bus 4")
           )
           ],
         ),
@@ -239,7 +269,13 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
               ),
             ),
             Positioned(
-                bottom: 20,
+              bottom:20,
+              left: 10,
+              child: new Text('${distanceInMeters/1000}'),
+
+            ),
+            Positioned(
+                bottom: 30,
                 left: 10,
                 child: ElevatedButton(
               onPressed: ()async {
