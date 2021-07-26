@@ -20,9 +20,18 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
   double y =83.3188 ;
   double latitude;
   double longitude;
+  double _latitide =1;
+  double _longitude =1;
   var locationMessage ="";
   Directions _info;
   var distance;
+
+  Future<double> get_location() async
+  {
+    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.bestForNavigation);
+    _latitide= position.latitude;
+    return position.longitude;
+  }
 
   void myNew()  async{
     var position = await Geolocator.getCurrentPosition(
@@ -73,8 +82,8 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
     
     setState(() {
       _markers.add(
-       _home= Marker(markerId: MarkerId('1'),
-        position:  new LatLng(17.7294,83.3093),
+       _home= new Marker(markerId: MarkerId('1'),
+        position:  new LatLng(_latitide,_longitude),
         infoWindow: InfoWindow(
           title: 'home',
           snippet: 'user home',
@@ -157,7 +166,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
           actions: [
             if(_home != null)
           TextButton(
-        onPressed: () => OnPressedFunction(17.7294,83.3093),
+        onPressed: () => OnPressedFunction(_latitide,_longitude),
           child:Text("home"),
           ),
           TextButton(onPressed: ()=>OnPressedFunction(x,y)
@@ -217,7 +226,29 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>{
                 ),
               ),
             ),
-            
+            Positioned(
+                bottom: 20,
+                left: 10,
+                child: ElevatedButton(
+              onPressed: ()async {
+                _longitude= await get_location();
+                print(_latitide);
+                print(_longitude);
+                setState(() {
+                  _markers.add(
+                      _bus2= Marker(markerId: MarkerId('1'),
+                          position:  new LatLng(_latitide,_longitude),
+                          infoWindow: InfoWindow(
+                            title: 'Home',
+                            snippet: 'This is your location ',
+
+                          )
+                      )
+                  );
+                });
+              },
+              child: Text("Get Location"),
+            ))
     ]
     
       ),
