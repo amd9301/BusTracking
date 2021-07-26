@@ -5,7 +5,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import '../direction_model.dart';
 import '../directions_repository.dart';
 import '../screen/netpie2020.dart';
-import 'DistancePage.dart';
+
 
 
 class GoogleMapScreen extends StatefulWidget {
@@ -52,12 +52,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
     distanceInMeters = Geolocator.distanceBetween(lat1, long1, lat2, long2);
     print("distance");
     print(distanceInMeters/1000);
-    /*Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder:(context)=>DistancePage(),
-      ),
-    );*/
+
 
   }
 
@@ -133,7 +128,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
         infoWindow: InfoWindow(
           title: 'bus 1',
         snippet: 'this bus is at a distance of 8 Km from home ',
-          onTap: ()=>onMarkerPressed(x, y)
+
         )
       )
         );
@@ -208,7 +203,7 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
           child:Text("home"),
           ),
           TextButton(
-              onPressed: ()=>OnPressedFunction(x,y) ,
+              onPressed: ()=>OnPressedFunction(b1lat,b1long) ,
               child:Text("bus 1")
           ),
           TextButton(
@@ -269,13 +264,19 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
               ),
             ),
             Positioned(
-              bottom:20,
-              left: 10,
-              child: new Text('${distanceInMeters/1000}'),
+              top: 50,
+             child: new Text(
+                 'Distance  : '+'${(distanceInMeters/1000).truncate()}'+' KiloMetres',
+             style: TextStyle(
+               fontSize: 20,fontWeight: FontWeight.bold
+             ),
+             ),
+
+
 
             ),
             Positioned(
-                bottom: 30,
+                bottom: 40,
                 left: 10,
                 child: ElevatedButton(
               onPressed: ()async {
@@ -296,25 +297,28 @@ class _GoogleMapScreenState extends State<GoogleMapScreen>
                   );
                 });
               },
-              child: Text("Get Location"),
+              child: Text("Calculate Distance"),
             ))
     ]
     
       ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: Padding(
+          padding:EdgeInsets.all(32.0),
+          child: FloatingActionButton(
 
-        backgroundColor: Theme.of(context).primaryColor,
-        foregroundColor: Colors.black,
-        onPressed: () async {
-           final GoogleMapController mapController = await _controller.future;
-         mapController .animateCamera(
-          _info != null
-              ? CameraUpdate.newLatLngBounds(_info.bounds, 30.0)
-              : CameraUpdate.newCameraPosition(_initialCameraPosition),
-        );
-        },
-          child:const Icon(Icons.center_focus_strong),
+          backgroundColor: Theme.of(context).primaryColor,
+          foregroundColor: Colors.black,
+          onPressed: () async {
+             final GoogleMapController mapController = await _controller.future;
+           mapController .animateCamera(
+            _info != null
+                ? CameraUpdate.newLatLngBounds(_info.bounds, 30.0)
+                : CameraUpdate.newCameraPosition(_initialCameraPosition),
+          );
+          },
+            child:const Icon(Icons.center_focus_strong),
       ),
+        ),
     );
   }
 }

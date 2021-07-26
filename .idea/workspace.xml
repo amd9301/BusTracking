@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7b8c43e8-3991-4446-aba5-ca44e4265f66" name="Default Changelist" comment="Got distance in metres">
-      <change afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/DistancePage.dart" afterDir="false" />
+    <list default="true" id="7b8c43e8-3991-4446-aba5-ca44e4265f66" name="Default Changelist" comment="Distance and displayed on screen">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Bustracking-master/lib/screen/DistancePage.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Bustracking-master/lib/screen/google_map_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/google_map_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bustracking-master/lib/screen/netpie2020.dart" beforeDir="false" afterPath="$PROJECT_DIR$/Bustracking-master/lib/screen/netpie2020.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,14 +73,22 @@
       <option name="project" value="LOCAL" />
       <updated>1627290288369</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Distance and displayed on screen">
+      <created>1627293936379</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1627293936379</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Removed redundant methods" />
     <MESSAGE value="Added current location to home" />
     <MESSAGE value="Got distance in metres" />
-    <option name="LAST_COMMIT_MESSAGE" value="Got distance in metres" />
+    <MESSAGE value="Distance and displayed on screen" />
+    <option name="LAST_COMMIT_MESSAGE" value="Distance and displayed on screen" />
   </component>
   <component name="WindowStateProjectService">
     <state x="654" y="275" key="#Notifications" timestamp="1627282695393">
@@ -96,6 +103,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="202" key="#com.intellij.ide.util.TreeFileChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1627278899671" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1627294497048">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1627294497048" />
     <state x="826" y="167" key="FileChooserDialogImpl" timestamp="1627278782632">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -120,17 +131,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="555" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1627278784355" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1627290293728">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1627293942297">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1627290293728" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1627293942297" />
     <state x="559" y="313" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1627282884937">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="559" y="313" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824@0.0.1536.824" timestamp="1627282884937" />
-    <state x="431" y="145" key="search.everywhere.popup" timestamp="1627288985209">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1627294080908">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1627288985209" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1627294080908" />
   </component>
 </project>
