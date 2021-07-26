@@ -40,20 +40,23 @@ class _HomePageState extends State<HomePage> {
         title: Text('Clg bus tracking'),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Icon(Icons.location_on,size:45.0,color:Colors.blue,),
-            SizedBox(height:10.0),
-            Text(
-                'click on the icon to track your bus',
-                style: TextStyle(fontSize:24,
-                    fontWeight: FontWeight.bold
-                )
-            ),
-            SizedBox(height:10.0),
-            
-          ],
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(20,0, 20, 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(Icons.location_on,size:45.0,color:Colors.blue,),
+              SizedBox(height:10.0),
+              Text(
+                  'Click the icon to track your bus',
+                  style: TextStyle(fontSize:22,
+                      fontWeight: FontWeight.bold
+                  )
+              ),
+              SizedBox(height:10.0),
+
+            ],
+          ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
